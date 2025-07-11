@@ -34,6 +34,7 @@ export const SignUp = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [captchaImages, setCaptchaImages] = useState([] as string[]);
   const [captchaFolder, setCaptchaFolder] = useState<string | null>(null);
+  const [captchaError, setCaptchaError] = useState(false);
 
   const [verifiedCaptcha, setVerifiedCaptcha] = useState("");
 
@@ -63,7 +64,7 @@ export const SignUp = () => {
     })
   };
 
-  const handleRoleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleRoleChange = (event: SelectChangeEvent<string>) => {
     console.log(event.target.value);
     setRole(event.target.value);
   };
@@ -72,18 +73,28 @@ export const SignUp = () => {
     setSelectedImage(index);
   };
 
-  const verifyCaptcha = () => {
+  const verifyCaptcha = async () => {
     if (selectedImage === null) {
       return;
     }
 
     try {
-      CaptchaService.VerifyCaptcha(selectedImage)
-        .then((response) => setVerifiedCaptcha(response.data.captcha));
+      const response = await CaptchaService.VerifyCaptcha(selectedImage);
+      setVerifiedCaptcha(response.data.captcha);
       setCaptchaVerified(true);
-    } catch (e: any){
-      return;
+      setCaptchaError(false);
+    } catch (error) {
+      setCaptchaError(true);
+      refreshCaptcha();
     }
+  };
+
+  const refreshCaptcha = () => {
+    setSelectedImage(null);
+    CaptchaService.GetImages().then(response => {
+      setCaptchaImages(response.data.links);
+      setCaptchaFolder(response.data.folder);
+    });
   };
 
   return (
@@ -172,8 +183,14 @@ export const SignUp = () => {
               {!captchaVerified ? (
                 <>
                   <Typography variant="body2" sx={{ mb: 1 }}>
-                    Please select the image of a {/* Insert challenge text here */} car
+                    Please select the image of a dog
                   </Typography>
+
+                  {captchaError && (
+                    <Alert severity="error" sx={{ mb: 2 }}>
+                      Incorrect selection. Please try again.
+                    </Alert>
+                  )}
 
                   <Paper elevation={1} sx={{ p: 2, mb: 2 }}>
                     <ImageList cols={2} rowHeight={120} sx={{ mb: 1 }}>
@@ -199,14 +216,22 @@ export const SignUp = () => {
                       ))}
                     </ImageList>
 
-                    <Button
-                      fullWidth
-                      variant="outlined"
-                      onClick={verifyCaptcha}
-                      disabled={selectedImage === null}
-                    >
-                      Verify
-                    </Button>
+                    <Box sx={{ display: 'flex', gap: 1 }}>
+                      <Button
+                        fullWidth
+                        variant="outlined"
+                        onClick={verifyCaptcha}
+                        disabled={selectedImage === null}
+                      >
+                        Verify
+                      </Button>
+                      <Button
+                        variant="text"
+                        onClick={refreshCaptcha}
+                      >
+                        Refresh
+                      </Button>
+                    </Box>
                   </Paper>
                 </>
               ) : (

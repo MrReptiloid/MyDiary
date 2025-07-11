@@ -34,7 +34,7 @@ export const SignIn = () => {
       String(data.get('password')),
     ).then(response => {
       if (response.status == 200)
-        navigate("../admin")
+        navigate("../")
     })
   };
 

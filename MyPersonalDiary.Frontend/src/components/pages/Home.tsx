@@ -88,7 +88,7 @@ export const Home = () => {
 
       const params = {
         pageNumber: paginationData.pageNumber,
-        searchText: debouncedSearchTerm || undefined,
+        searchTerm: debouncedSearchTerm || undefined,
         startDate: startDate ? startDate.toISOString() : undefined,
         endDate: endDate ? endDate.toISOString() : undefined
       };

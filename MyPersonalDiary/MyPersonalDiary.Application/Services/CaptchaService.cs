@@ -31,7 +31,6 @@ public class CaptchaService
 
         string[] imageFiles = Directory.GetFiles(sourceDir);
         List<string> newFileNames = new List<string>();
-        string dogImageNewName = null;
 
         foreach (string imageFile in imageFiles)
         {
@@ -49,30 +48,43 @@ public class CaptchaService
             newFileNames.Add(newFileName);
         }
 
-        newFileNames.Select(name => 
-            Path.Combine(
-                "CaptchaTemp",
-                folderGuid.ToString(),
-                name))
-            .Order();
+        List<string> sortedLinks = newFileNames.OrderBy(f => f.GetHashCode()).ToList();
         
-        return (newFileNames, folderGuid.ToString());
+        return (sortedLinks, folderGuid.ToString());
     }
     
     public async Task<Result<string, string>> VerifyCaptchaAsync(string answer)
     {
-        string? verified = _captchaRepository.VerifyAnswer(answer);
+        (string? verifiedId, string? folderId) = _captchaRepository.VerifyAnswer(answer);
 
-        if (verified == null)
+        if (verifiedId == null || folderId == null)
         {
-            return Result.Failure<string, string>("Captcha verification failed");
+            return Result.Failure<string, string>("Captcha answer is incorrect or not found");
         }
         
-        return Result.Success<string, string>(verified);
+        CleanupTempFiles(folderId);
+        
+        return Result.Success<string, string>(verifiedId);
     }
     
     public bool CheckVerified(string captcha)
     {
         return _captchaRepository.CheckVerified(captcha);
+    }
+    
+    private void CleanupTempFiles(string folderGuid)
+    {
+        try
+        {
+            string tempFolderPath = Path.Combine("wwwroot", "CaptchaTemp", folderGuid);
+            if (Directory.Exists(tempFolderPath))
+            {
+                Directory.Delete(tempFolderPath, true);
+            }
+        }
+        catch 
+        {
+            Console.WriteLine("For now, we'll silently continue as cleanup failure shouldn't break the flow");
+        }
     }
 }
