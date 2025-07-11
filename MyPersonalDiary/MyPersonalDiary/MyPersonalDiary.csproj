@@ -1,0 +1,102 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="CSharpFunctionalExtensions" Version="3.6.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.6" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.6"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.6" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.6">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.6">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.6" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.6" />
+        <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="9.0.3" />
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="9.0.3" />
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="9.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MyPersonalDiary.DataAccess\MyPersonalDiary.DataAccess.csproj" />
+      <ProjectReference Include="..\MyPersonalDiary.Infrastructure\MyPersonalDiary.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="wwwroot\CaptchaTemp\" />
+      <Folder Include="wwwroot\Uploads\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\088dae5c-b105-45d5-b1f8-da0a9c05af05\584e9ec5-7cde-4eb0-99d2-99ecee97e476.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\088dae5c-b105-45d5-b1f8-da0a9c05af05\6e317fd5-3235-4937-bb63-b7297374d255.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\088dae5c-b105-45d5-b1f8-da0a9c05af05\94f9b226-e7b1-4037-9113-ae156146aec2.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\088dae5c-b105-45d5-b1f8-da0a9c05af05\bad82399-12d4-45a3-8f71-8089d3bf42f4.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\f4d0ef6e-d28b-4ff7-a50a-9c5b4bbf5fc4\110285d8-a8e3-49ac-a03c-fb6f4774d7ef.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\f4d0ef6e-d28b-4ff7-a50a-9c5b4bbf5fc4\4107824b-9be5-47dd-9fb4-bca43d595343.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\f4d0ef6e-d28b-4ff7-a50a-9c5b4bbf5fc4\61bf8310-4860-49cc-81a7-f2dc050354d8.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\f4d0ef6e-d28b-4ff7-a50a-9c5b4bbf5fc4\e527f397-b158-4c3a-8352-532bb6851a0c.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\ff415b77-bf92-4912-bcde-2fe2f3ba1b27\15482f48-592d-4ea2-91d1-8e476a54b3a9.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\ff415b77-bf92-4912-bcde-2fe2f3ba1b27\aa752ade-156f-4803-b5eb-e49a057562bf.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\ff415b77-bf92-4912-bcde-2fe2f3ba1b27\c97e3d08-fd72-4671-8eb3-277a5b79a294.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\ff415b77-bf92-4912-bcde-2fe2f3ba1b27\e4a7c8d2-6f9e-4542-ab29-77c6999616f6.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\b0adcb5b-8bdf-47ee-87d0-9138f35d4de1\1fc87028-8419-4087-ac75-59288eb1a8bc.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\b0adcb5b-8bdf-47ee-87d0-9138f35d4de1\4b3a8cec-ec02-4937-9d10-cd53c91a3d0e.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\b0adcb5b-8bdf-47ee-87d0-9138f35d4de1\a03ee53e-71b1-42dc-84a6-7a965d082736.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\b0adcb5b-8bdf-47ee-87d0-9138f35d4de1\e9d6045e-779c-47ee-96aa-29234fa7294a.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\0eab8c4d-7320-4126-be4f-178674dacda0\1818ad94-02bf-4d72-ab71-cdada920f572.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\0eab8c4d-7320-4126-be4f-178674dacda0\a0541e84-f6fb-43eb-b182-c327bb58a51f.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\0eab8c4d-7320-4126-be4f-178674dacda0\dd12ae41-a894-459c-8636-680db7535431.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\0eab8c4d-7320-4126-be4f-178674dacda0\e97e8b0b-2942-41ef-810d-ee2aa9e60e4b.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\5c645ce6-e842-4617-8fd9-87b135b39329\0cbdc848-6138-4125-b360-ff0ab0c0889e.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\5c645ce6-e842-4617-8fd9-87b135b39329\8350a45a-7110-4315-82cc-01cae4ce353a.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\5c645ce6-e842-4617-8fd9-87b135b39329\cc07597d-c9a3-4243-932c-70cae3806b22.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\5c645ce6-e842-4617-8fd9-87b135b39329\d950822e-26b9-4321-aadb-a891d43b9272.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\08f1fa1c-d152-4076-a6ed-fcd1f7f5ab2b\3e05bbfe-9dc8-4b48-8992-0aecb6629888.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\08f1fa1c-d152-4076-a6ed-fcd1f7f5ab2b\70e46d78-b4b1-4b78-8f5f-3e8eeb9ef20e.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\08f1fa1c-d152-4076-a6ed-fcd1f7f5ab2b\9c0c5bcb-8755-486a-9514-afcba72e4263.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\08f1fa1c-d152-4076-a6ed-fcd1f7f5ab2b\eadc963d-d07f-44d2-9d5c-3d678a711a34.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\18ed0a76-2fb8-4802-9e57-ebd28a69cabd\286ff424-ebc6-4717-930f-926144a88e4a.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\18ed0a76-2fb8-4802-9e57-ebd28a69cabd\2eb9dca8-0685-4250-a529-d736ad907146.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\18ed0a76-2fb8-4802-9e57-ebd28a69cabd\6299a9ad-b931-43aa-ba15-d6a38c21a814.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\18ed0a76-2fb8-4802-9e57-ebd28a69cabd\dd374119-f93d-4a0b-98fe-e2ac6c0d4a39.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\92efb8c9-797e-4ecf-ab81-d0d04d5a03c4\772e67fe-4433-441f-809f-5fbb95c71734.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\92efb8c9-797e-4ecf-ab81-d0d04d5a03c4\e038c109-d33a-4899-968d-f11157cb20f8.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\92efb8c9-797e-4ecf-ab81-d0d04d5a03c4\f28bed5c-620b-4922-a7ae-f3f64fe8a054.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\92efb8c9-797e-4ecf-ab81-d0d04d5a03c4\f410d9c1-5ce5-41b0-9611-41137a449ffd.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\0219a688-a6da-4e24-88e0-810d975ba3c9\c3652603-554f-43a5-bb14-3fcf52d3f7c8.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\0219a688-a6da-4e24-88e0-810d975ba3c9\c50cdf03-c256-40b1-bec0-609ca2552d39.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\0219a688-a6da-4e24-88e0-810d975ba3c9\d9c1fd6d-04ae-4b00-8b9b-7c5b0ec39175.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\0219a688-a6da-4e24-88e0-810d975ba3c9\de4aee4a-b9b6-46a3-92cc-600119934a8c.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\85699a56-9db1-45bd-81d5-dfbff9e9c77d\13101bd7-1337-4408-85a2-a479fd58c32c.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\85699a56-9db1-45bd-81d5-dfbff9e9c77d\211ab108-6e12-4ae0-96c3-b1580bc80302.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\85699a56-9db1-45bd-81d5-dfbff9e9c77d\73056181-2480-4377-a43c-a268902d765c.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\85699a56-9db1-45bd-81d5-dfbff9e9c77d\dca03d65-efeb-48f0-b784-82402cacd8aa.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\a9748de4-50fa-4189-8682-4162e50eb0bd\0da757f5-ca0e-4479-a6b0-15946096f7aa.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\a9748de4-50fa-4189-8682-4162e50eb0bd\33d666ba-a734-4a56-be62-348c5972c0ee.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\a9748de4-50fa-4189-8682-4162e50eb0bd\484b4d9b-2376-4c17-9e0f-688eb6f75de9.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\a9748de4-50fa-4189-8682-4162e50eb0bd\54422880-e757-4b25-8b91-7b7e4f0c360c.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\acf8318d-1b1a-42dc-bb34-b8cec57f08e3\67513d1f-55de-468e-a182-665bfae0dd22.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\acf8318d-1b1a-42dc-bb34-b8cec57f08e3\997b53da-15d2-4340-9151-b7bd962aac69.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\acf8318d-1b1a-42dc-bb34-b8cec57f08e3\b7c24d57-3eb8-46ff-9fe6-6d3346e988e1.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\acf8318d-1b1a-42dc-bb34-b8cec57f08e3\ee2b79cb-dda4-48db-9804-165b5600a383.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\c06b0682-2f18-4114-9075-ebd44cc9214a\01b94716-2e33-4712-8e15-db52518ca1bf.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\c06b0682-2f18-4114-9075-ebd44cc9214a\3d9d9e73-ee8b-44c0-9ef6-ad7b74c8c799.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\c06b0682-2f18-4114-9075-ebd44cc9214a\6a6a0e37-979e-4966-8ef7-108bdbaebd52.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\c06b0682-2f18-4114-9075-ebd44cc9214a\9084a263-f6c1-4c4d-8947-10e361f07725.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\d9465a64-10eb-4176-a277-672c75280292\1012d2d1-ca75-4319-a32e-97beb645f894.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\d9465a64-10eb-4176-a277-672c75280292\2a8299c0-8216-4766-ac5f-581c43a79f7f.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\d9465a64-10eb-4176-a277-672c75280292\2b04e1d2-cf0a-4ec6-b727-70683d3f144f.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\CaptchaTemp\d9465a64-10eb-4176-a277-672c75280292\9c41c7ad-0e42-4c47-89c7-d0c25f1257fb.jpeg" />
+    </ItemGroup>
+
+</Project>
