@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using MyPersonalDiary.Application.Interfaces;
+using MyPersonalDiary.Core.Interfaces;
 using MyPersonalDiary.Core.Models;
 
 namespace MyPersonalDiary.Infrastructure;

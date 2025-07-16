@@ -1,6 +1,6 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using MyPersonalDiary.Application.Interfaces;
+using MyPersonalDiary.Core.Interfaces;
 using MyPersonalDiary.Core.Models;
 using MyPersonalDiary.DataAccess.Repository;
 
@@ -33,7 +33,7 @@ public class InviteService
             IsUsed = false
         };
         
-        await _inviteRepository.CreateInviteAsync(invite);
+        await _inviteRepository.CreateAsync(invite);
     
         return inviteCode;
     }

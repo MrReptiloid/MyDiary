@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.EntityFrameworkCore;
 using MyPersonalDiary.Application;
-using MyPersonalDiary.Application.Interfaces;
 using MyPersonalDiary.Application.Services;
+using MyPersonalDiary.Core.Interfaces;
 using MyPersonalDiary.Core.Models;
 using MyPersonalDiary.DataAccess;
 using MyPersonalDiary.DataAccess.Repository;

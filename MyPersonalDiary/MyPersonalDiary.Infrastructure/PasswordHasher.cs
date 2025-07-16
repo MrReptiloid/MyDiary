@@ -1,4 +1,5 @@
 using MyPersonalDiary.Application;
+using MyPersonalDiary.Core.Interfaces;
 
 namespace MyPersonalDiary.Infrastructure;
 

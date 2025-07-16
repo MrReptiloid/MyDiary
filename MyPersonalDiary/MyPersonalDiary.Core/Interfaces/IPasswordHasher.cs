@@ -1,4 +1,4 @@
-namespace MyPersonalDiary.Application;
+namespace MyPersonalDiary.Core.Interfaces;
 
 public interface IPasswordHasher
 {

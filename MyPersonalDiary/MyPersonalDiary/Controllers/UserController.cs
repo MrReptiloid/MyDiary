@@ -34,7 +34,7 @@ public class UserController: ControllerBase
     {
         try
         {
-            string token = await _userService.Login(request.UserName, request.Password);
+            string token = _userService.Login(request.UserName, request.Password);
             HttpContext.Response.Cookies.Append("tasty-cookies", token);
             return Ok(token);
         }
@@ -78,7 +78,7 @@ public class UserController: ControllerBase
     [HttpPost("restore")]
     public async Task<IActionResult> RestoreAccount([FromBody] RestoreAccountRequest request)
     {
-        if (request == null || string.IsNullOrEmpty(request.UserName) || string.IsNullOrEmpty(request.Password))
+        if (string.IsNullOrEmpty(request.UserName) || string.IsNullOrEmpty(request.Password))
         {
             return BadRequest(new { error = "Username and password are required" });
         }

@@ -1,8 +1,8 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using CSharpFunctionalExtensions;
-using MyPersonalDiary.Application.Interfaces;
 using MyPersonalDiary.Contracts;
+using MyPersonalDiary.Core.Interfaces;
 using MyPersonalDiary.Core.Models;
 using MyPersonalDiary.DataAccess.Repository;
 
@@ -44,7 +44,7 @@ public class UserService
             if (string.IsNullOrWhiteSpace(request.Email) || !request.Email.Contains("@"))
                 return Result.Failure("Invalid email format");
                 
-            var existingUser = await _userRepository.GetByUserName(request.UserName);
+            var existingUser = _userRepository.GetByUserName(request.UserName);
             if (existingUser != null)
                 return Result.Failure("Username already exists");
 
@@ -72,7 +72,7 @@ public class UserService
 
             await _inviteRepository.MarkAsUsedAsync(request.InviteCode, user.Id);
             
-            await _userRepository.Create(user);
+            await _userRepository.CreateAsync(user);
             
             return Result.Success();
         }
@@ -82,7 +82,7 @@ public class UserService
         }
     }
 
-    public async Task<string> Login(string userName, string password)
+    public string Login(string userName, string password)
     {
         try
         {
@@ -92,7 +92,7 @@ public class UserService
             if (string.IsNullOrEmpty(password))
                 throw new ArgumentException("Password cannot be empty");
                 
-            var user = await _userRepository.GetByUserName(userName);
+            var user = _userRepository.GetByUserName(userName);
             if (user == null)
                 throw new Exception("Invalid username or password");
                 
@@ -135,8 +135,8 @@ public class UserService
             if (string.IsNullOrEmpty(userName))
                 return Result.Failure<string, string>("Token does not contain a valid user name");
 
-            User? user = await _userRepository.GetByUserName(userName);
-            if (user == null || user.IsDeleted)
+            User user = _userRepository.GetByUserName(userName);
+            if (user.IsDeleted)
             {
                 return Result.Failure<string, string>("User not found or deleted");
             }

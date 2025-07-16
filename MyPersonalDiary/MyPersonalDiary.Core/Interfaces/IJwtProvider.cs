@@ -1,7 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using MyPersonalDiary.Core.Models;
 
-namespace MyPersonalDiary.Application.Interfaces;
+namespace MyPersonalDiary.Core.Interfaces;
 
 public interface IJwtProvider
 {
